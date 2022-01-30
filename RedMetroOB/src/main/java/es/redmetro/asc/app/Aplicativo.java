@@ -19,30 +19,8 @@ public class Aplicativo {
 	
     public static void main(String[] args) {
     
-    	
-    	byte[]imagen = Imagen.getBytesFromUrl("https://www.planometromadrid.org/mapas-metro/metro-madrid-linea-ramal.png");
-    	
     
-    	
-    	
-    	
-    	
-    	try {
-    		double numero = (double) NumberFormat.getNumberInstance(Locale.FRANCE).parse("265,858");
-        	
-    		System.out.println(numero);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    
-    	
-    	
-    	
-    	
-// 
-  
-//    	
+    	 	
     	IRedMetro<Color> accionesColor = new ColorJpa();
        	IRedMetro<Linea> accionesLinea = new LineaJpa();
     	Aplicativo aplicativo = new Aplicativo();
@@ -60,17 +38,11 @@ public class Aplicativo {
     	aplicativo.procesarLineas();
     	**/
     	
-    //	aplicativo.procesarLineas();
-//    	
-    	/**
-    	List<Linea> lineas = accionesLinea.getLista();
-    	for (Linea linea : lineas) {
-    		System.out.println(linea);
-    	}
-   **/
+ 
+
    	Color color = accionesColor.buscar(1);
    	System.out.println(color);
-//   	select Linea from Linea where codigoLinea = 1
+
    	
   Linea linea= 	accionesLinea.buscar(56);
   	System.out.println(linea);
