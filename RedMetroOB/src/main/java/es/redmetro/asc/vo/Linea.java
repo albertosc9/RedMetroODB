@@ -1,15 +1,26 @@
 package es.redmetro.asc.vo;
 
+import java.io.Serializable;
+
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @Entity
 @JacksonXmlRootElement(localName = "linea")
-public class Linea {
+public class Linea implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6739014535633900802L;
+
 
 	@Column(name="codigoLinea")
 	private int codigoLinea;
@@ -27,6 +38,9 @@ public class Linea {
 	
 	private double kilometros;
 	
+	@Lob
+	@Basic(fetch = FetchType.LAZY)
+	@Column(name="imagen_linea")
 	private byte[] imagenLinea;
 
 	public int getCodigoLinea() {

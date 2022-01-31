@@ -21,7 +21,7 @@ public class Imagen {
 			
 			HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
 			
-			urlConnection.addRequestProperty("User-Agent","Chrome");
+			urlConnection.addRequestProperty("User-Agent","Mozilla");
 			
 			
 			InputStream input = urlConnection.getInputStream();

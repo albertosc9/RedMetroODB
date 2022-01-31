@@ -26,27 +26,27 @@ public class Aplicativo {
     	Aplicativo aplicativo = new Aplicativo();
     	
     	
-    	List<Linea>lineas = accionesLinea.getLista();
+
     	
-    	for (Linea li : lineas) {
-    		System.out.println(li);
-    	}
-    	
+    	System.out.println(accionesColor.buscar(1));
     	
     	/**
     	aplicativo.procesarColores();
     	aplicativo.procesarLineas();
     	**/
-    	
+    
+//    	List<Color>colores = accionesColor.getLista();
+//    	for (Color color : colores) {
+//    		System.out.println(color);
+//    	}
+//    	List<Linea>lineas = accionesLinea.getLista();
+//    	
+//    	for (Linea linea : lineas) {
+//    		System.out.println(linea);
+//    	}
+//    System.out.println(accionesLinea.buscar(1));
  
 
-   	Color color = accionesColor.buscar(1);
-   	System.out.println(color);
-
-   	
-  Linea linea= 	accionesLinea.buscar(56);
-  	System.out.println(linea);
-    
     }	
   
     
