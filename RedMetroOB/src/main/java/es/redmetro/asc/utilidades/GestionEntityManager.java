@@ -6,9 +6,9 @@ import javax.persistence.Persistence;
 
 public class GestionEntityManager {
 
-	
 
-	private static EntityManagerFactory emf = null;
+
+	private static EntityManagerFactory emf;
 	
 	
 	public static EntityManager getEntityManager() {
