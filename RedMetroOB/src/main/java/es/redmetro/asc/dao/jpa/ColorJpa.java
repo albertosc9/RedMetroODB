@@ -83,16 +83,28 @@ public class ColorJpa implements IRedMetro<Color> {
 	@Override
 	public List<Color> getLista() {
 
-		em = GestionEntityManager.getEntityManager();
-		
-		 Query query = em.createQuery("Select c from Color c");
-	      List<Color> list=query.getResultList();
+		List<Color> colores = null;
+	    try {
+	    	em=GestionEntityManager.getEntityManager();
 
-	   em.close();
-	   
-	   return list;
-	   
+			String sentenciaJPQL="SELECT color FROM Color color";
+
+			TypedQuery<Color> query =(TypedQuery<Color>) em.createQuery(sentenciaJPQL);
+			
+			colores = query.getResultList();
+        }catch (NoResultException e) {
+        	colores =null;            
+        }catch (PersistenceException e) {
+                
+        } finally {
+        	if (em!=null)
+        		em.close();
+        }		
+
+		return colores;
 	}
+	   
+	
 		@Override
 		public void actualizar(Color entidad) {
 			// TODO Auto-generated method stub

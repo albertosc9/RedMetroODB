@@ -29,28 +29,28 @@ public class Aplicativo {
     	IRedMetro<Color> accionesColor = new ColorJpa();
        	IRedMetro<Linea> accionesLinea = new LineaJpa();
     	Aplicativo aplicativo = new Aplicativo();
-    	
-    	
-
-    	
-    //	System.out.println(accionesColor.buscar(1));
-    	
-    	
-    	
-    	/**
+      	   	
+    	/*insercion de los datos en objectDB
     	aplicativo.procesarColores();
     	aplicativo.procesarLineas();
-    	**/
+    	*/
     
-//    	List<Color>colores = accionesColor.getLista();
-//    	for (Color color : colores) {
-//    		System.out.println(color);
-//    	}
-//    	List<Linea>lineas = accionesLinea.getLista();
-//    	
-//    	for (Linea linea : lineas) {
-//    		System.out.println(linea);
-//    	}
+    	
+    	//lista de colores
+    	
+    	List<Color>colores = accionesColor.getLista();
+    	for (Color color : colores) {
+    		System.out.println(color);
+    	}
+    	
+    	//lista de lineas
+    	
+    	List<Linea>lineas = accionesLinea.getLista();
+    	
+    	for (Linea linea : lineas) {
+    		System.out.println(linea);
+    	}
+    	
 //    System.out.println(accionesLinea.buscar(1));
  
 
@@ -90,11 +90,10 @@ public class Aplicativo {
         	
         	System.out.println(color1);
         	
-        	try {
-        		
+        
         		linea.setColor(color1);
             	linea.setCodigoLinea(li.getCod_linea());
-    			linea.setKilometros ((double) NumberFormat.getNumberInstance(Locale.FRANCE).parse(li.getKilometros()));
+    			linea.setKilometros(li.getKilometros());
     			linea.setNombreCorto(li.getNombre_corto());
     			linea.setNombreLargo(li.getNombre_largo());
     			linea.setImagenEmpleado(getBytesFromUrl(li.getUrl_img_tmp()));
@@ -103,14 +102,11 @@ public class Aplicativo {
     			accionesLinea.crear(linea);
     			System.out.println(li);
     			
-    		} catch (ParseException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
+    		
         }
     }
     
-	public static byte[] getBytesFromUrl(String TextoUrl) {
+	private static byte[] getBytesFromUrl(String TextoUrl) {
 		byte [] bytesImage = null;
 		
 		URL url = null;

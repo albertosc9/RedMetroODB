@@ -22,8 +22,8 @@ public class LineaXml {
 		@JacksonXmlProperty(localName = "url_img_tmp")
 		private String url_img_tmp;
 		
-		@JacksonXmlProperty(localName = "kilometros")
-		private String kilometros;
+		@JacksonXmlProperty(localName = "kilometros" )
+		private float kilometros;
 
 	
 		
@@ -76,13 +76,18 @@ public class LineaXml {
 			this.url_img_tmp = url_img_tmp;
 		}
 
-		public String getKilometros() {
+		public float getKilometros() {
+			// TODO Auto-generated method stub
 			return kilometros;
 		}
 
-		public void setKilometros(String kilometros) {
-			this.kilometros = kilometros;
-		}
+//		public String getKilometros() {
+//			return kilometros;
+//		}
+//
+//		public void setKilometros(String kilometros) {
+//			this.kilometros = kilometros;
+//		}
 		
 		
 		

@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
@@ -95,25 +96,25 @@ public class LineaJpa implements IRedMetro<Linea>{
 	@Override
 	public List<Linea> getLista() {
 		
-//		List<Linea> departamentos = null;
-//	    try {
-//			em=GestionEntityManager.getEntityManager();
-//
-//			String sentenciaJPQL="SELECT departamento FROM Departamento departamento";
-//
-//			TypedQuery<Departamento> query =entityManager.createQuery(sentenciaJPQL, Departamento.class);
-//			
-//			departamentos = query.getResultList();
-//        }catch (NoResultException e) {
-//        	departamentos =null;            
-//        }catch (PersistenceException e) {
-//            throw new  EmpresaException(EmpresaException.EXCEPCION_CONSULTAR, e);            
-//        } finally {
-//        	if (entityManager!=null)
-//        		entityManager.close();
-//        }		
+		List<Linea> lineas = null;
+	    try {
+	em=GestionEntityManager.getEntityManager();
 
-		return null;
+			String sentenciaJPQL="SELECT linea FROM Linea linea";
+
+			TypedQuery<Linea> query =(TypedQuery<Linea>) em.createQuery(sentenciaJPQL);
+			
+			lineas = query.getResultList();
+        }catch (NoResultException e) {
+        	lineas =null;            
+        }catch (PersistenceException e) {
+                
+        } finally {
+        	if (em!=null)
+        		em.close();
+        }		
+
+		return lineas;
 	}
 	   
 	

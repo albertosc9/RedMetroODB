@@ -36,7 +36,7 @@ public class Linea implements Serializable{
 	    	name="cod_color", unique=true, nullable=false, updatable=false)
 	private Color color;
 	
-	private double kilometros;
+	private float kilometros;
 	
 	@Lob
 	@Basic(fetch = FetchType.LAZY)
@@ -79,7 +79,7 @@ public class Linea implements Serializable{
 		return kilometros;
 	}
 
-	public void setKilometros(double kilometros) {
+	public void setKilometros(float kilometros) {
 		this.kilometros = kilometros;
 	}
 
